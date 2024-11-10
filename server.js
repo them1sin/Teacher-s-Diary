@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const User = require('models/users')
+const Users = require('./models/users')
 
 const app = express();
 const PORT = 8080;
@@ -13,7 +13,43 @@ mongoose.connect(url)
     .catch((error) => console.log("Ошибка подключения: ", error));
 
 
+app.use(express.json());
+
+app.use((req, res, next) => {
+        console.log('Request received:', req.method, req.url);
+        next(); 
+});
+
 //Users 
+
+app.post("/login", async (req, res) => {
+    console.log('Received body:', req.body);
+
+    const { userName, password } = req.body;
+
+    try {
+        const user = await Users.findOne({ userName, password });
+        console.log(user);
+        
+        if (user && user.password === password) {
+            return res.json({
+                success: true,
+                role: user.role
+            });
+        } else {
+            return res.json({ 
+                success: false,
+                message: "Неправильный логин или пароль" 
+            });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ 
+            success: false,
+            message: "Ошибка сервера."
+         });
+    }
+});
 
 
 app.use(express.static('public'));

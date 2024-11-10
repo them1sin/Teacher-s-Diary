@@ -1,20 +1,35 @@
-const User = require('../../models/users')
-
 $(document).ready(function() {
-    const correctLogin = User.find({username});
-    const correctPassword = User.find({password});
-
-    console.log(correctLogin);
 
     $('.firstBtn').click(function() {
-        let login = $('input[name="auth_login"]').val();
-        let pass = $('input[name="auth_pass"]').val();
+        let Login = $('input[name="auth_login"]').val();
+        let Password = $('input[name="auth_pass"]').val();
 
-        if (login === correctLogin && pass === correctPassword) {
-            window.location.assign('/main');
-        } else {
-            alert("Неправильный логин или пароль. Попробуйте еще раз!")
-        }
-    })
-}
-)
+        console.log("JSON", JSON.stringify({
+            userName: Login,
+            password: Password,
+        }))
+    
+        console.log("Login:", Login);
+        console.log("Pass:", Password);
+        $.ajax({
+            url: "/login",
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({
+                userName: Login,
+                password: Password,
+            }),
+            success: function(response) {    
+            console.log("response from server:", response);
+                if (response.role && response.role[0] === "Teacher") {
+                    window.location.assign('/main');
+                } else {
+                    alert(response.message || "Неправильный логин или пароль, попробуйте еще раз!");
+                }
+            },
+            error: function() {
+                alert("Произошла ошибка");
+            }
+        });
+    });
+});
