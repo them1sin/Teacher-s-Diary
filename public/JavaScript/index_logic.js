@@ -1,6 +1,10 @@
+const User = require('../../models/users')
+
 $(document).ready(function() {
-    const correctLogin = 'admin';
-    const correctPassword = '1111';
+    const correctLogin = User.find({username});
+    const correctPassword = User.find({password});
+
+    console.log(correctLogin);
 
     $('.firstBtn').click(function() {
         let login = $('input[name="auth_login"]').val();
