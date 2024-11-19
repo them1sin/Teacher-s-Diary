@@ -1,0 +1,117 @@
+.form_container {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form_container h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form_container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form_container select,
+.form_container input {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.back_to_main,
+.adm_button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;
+}
+
+.back_to_main:hover,
+.adm_button:hover {
+    background-color: #0056b3;
+}
+
+.main_page {
+    max-width: 500px;
+    margin: 20px auto;
+    padding-top: 150px;
+}
+
+.admin_info {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.admin_info h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.admin_info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+.user_list {
+    margin: 20px auto;
+    max-width: 80%;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+
+.user_list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user_list table thead {
+    background-color: #f4f4f4;
+    color: black;
+  }
+  
+  .user_list table thead th {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .user_list table tbody tr {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .user_list table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .user_list table tbody tr:hover {
+    background-color: #e9f5ff;
+  }
+  
+  .user_list table td {
+    padding: 10px;
+    text-align: left;
+  }
